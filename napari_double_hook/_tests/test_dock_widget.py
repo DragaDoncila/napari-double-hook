@@ -1,0 +1,3 @@
+# from napari_double_hook import napari_experimental_provide_dock_widget
+
+# add your tests here...
