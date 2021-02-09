@@ -12,13 +12,15 @@ Testing behaviour of plugins with multiple implementations of the same hook
 
 This [napari] plugin was generated with [Cookiecutter] using with [@napari]'s [cookiecutter-napari-plugin] template.
 
-<!--
-Don't miss the full getting started guide to set up your new package:
-https://github.com/napari/cookiecutter-napari-plugin#getting-started
-
-and review the napari docs for plugin developers:
-https://napari.org/docs/plugins/index.html
--->
+## Testing Plan
+1. Add implementation for two reader hooks which open the same image (using two different I/O functions e.g. tifffile and skimage imread). Add console messages
+to distinguish between the two implementations
+2. Install plugin and identify which (if any) of the implementations is being used, whether this can be changed (and how), any error messages arising
+3. Check the appearance of both hooks (if they appear) in the GUI plugin installer
+4. Attempt returning list of implementations similar to the current `provide_function` solution
+5. Repeat for writer hooks
+6. Attempt multiple `provide_function` implementations and compare behaviour to returning a list of functions
+7. Repeat for `add_dock_widget`
 
 ## Installation
 
