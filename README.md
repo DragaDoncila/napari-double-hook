@@ -22,6 +22,22 @@ to distinguish between the two implementations
 6. Attempt multiple `provide_function` implementations and compare behaviour to returning a list of functions
 7. Repeat for `add_dock_widget`
 
+## napari_get_reader
+- All implementations are discovered and shown under the plugin name as defined in setup.py
+- The implementations are sorted in reverse alphabetical order of function name (in terms of call order)
+- Plugin sorter allows you to pick which implementation you are using, though they are indistinguishable in name - **suggest** saving plugin name + function as the implementation name, and/or allowing dev to pass argument to decorator for what name they'd like to use
+
+
+## Notes
+This is a set of associated notes regarding plugin development, the cookiecutter template and other potentially relevant but unstructured details discovered throughout the investigation.
+
+1. Writer plugin does not actually have an example.
+2. Functional hooks and dock widgets all appear in dock widget? Can be confusing as a dock widget could appear before any layers, but calling a function without layers causes an error.
+3. Plugin errors are unreadable in both light and dark theme
+4. Exposed entry points appear in the installer even if they don't have any hook implementations
+5. Installer shows multiple copies of a plugin, and each entry point is shown as a separate package
+6. Uninstalling using the installer doesn't remove the plugin (any of the copies) from the installer, or the hooks from the sorter. Clicking Remove again shows "nothing to uninstall" in status **is this just for editable packages??** 
+
 ## Installation
 
 You can install `napari-double-hook` via [pip]:
