@@ -17,15 +17,19 @@ This [napari] plugin was generated with [Cookiecutter] using with [@napari]'s [c
 to distinguish between the two implementations
 2. Install plugin and identify which (if any) of the implementations is being used, whether this can be changed (and how), any error messages arising
 3. Check the appearance of both hooks (if they appear) in the GUI plugin installer
-4. Attempt returning list of implementations similar to the current `provide_function` solution
 5. Repeat for writer hooks
 6. Attempt multiple `provide_function` implementations and compare behaviour to returning a list of functions
 7. Repeat for `add_dock_widget`
 
-## napari_get_reader
+## napari_get_reader & napari_get_writer
 - All implementations are discovered and shown under the plugin name as defined in setup.py
 - The implementations are sorted in reverse alphabetical order of function name (in terms of call order)
 - Plugin sorter allows you to pick which implementation you are using, though they are indistinguishable in name - **suggest** saving plugin name + function as the implementation name, and/or allowing dev to pass argument to decorator for what name they'd like to use
+
+## dock_widget and provide_function
+- User can return a list of functions and/or dock widgets, both of which are handled appropriately in the GUI
+- User CAN declare multiple hook implementations and in such a case, the name of the **returned** function is provided as the GUI title
+- Reader and writer should behave similarly, but return the name of the implementation function?
 
 
 ## Notes
