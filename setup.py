@@ -53,7 +53,10 @@ setup(
     ],
     entry_points={
         'napari.plugin': [
-            'napari-double-hook = napari_double_hook',
+            'napari-double-hook-reader = napari_double_hook._reader',
+            'napari-double-hook-writer = napari_double_hook._writer',
+            'napari-double-hook-widget = napari_double_hook._dock_widget',
+            'napari-double-hook-function = napari_double_hook._function'
         ],
     },
 )
